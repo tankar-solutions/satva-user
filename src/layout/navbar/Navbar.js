@@ -120,20 +120,8 @@ const Navbar = () => {
                 className="pl-5 text-white text-2xl font-bold"
                 aria-label="Login"
               >
-                {userInfo?.image ? (
-                  <Link
-                    href="/user/dashboard"
-                    className="relative top-1 w-6 h-6"
-                  >
-                    <Image
-                      width={29}
-                      height={29}
-                      src={userInfo?.image}
-                      alt="user"
-                      className="bg-white rounded-full"
-                    />
-                  </Link>
-                ) : userInfo?.name ? (
+                
+                { userInfo?.name ? (
                   <Link
                     href="/user/dashboard"
                     className="leading-none font-bold font-serif block"
