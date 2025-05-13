@@ -1,8 +1,8 @@
 {
-  "name": "kachabazar-store",
+  "name": "SatvaCare-store",
   "version": "0.1.0",
   "description": "this is satva-care built with next.js and tailwindcss",
-  "homepage": "https://kachabazar-store.vercel.app/",
+  "homepage": "https://satva-admin.vercel.app",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -74,7 +74,7 @@
     "tailwind-scrollbar-hide": "^1.0.4",
     "use-local-storage-state": "^13.0.0"
   },
-  "author": "HtmlLover",
+  "author": "SatvaCare",
   "license": "Regular",
   "devDependencies": {
     "@tailwindcss/forms": "^0.4.0",

@@ -302,8 +302,8 @@ export const storeCustomization = {
       de: "Schreiben Sie uns eine E-Mail",
     },
     email_box_email: {
-      en: "info@kachabazar.com ",
-      de: "info@kachabazar.com",
+      en: "shasvatcropscience@gmail.com",
+      de: "shasvatcropscience@gmail.com",
     },
     email_box_text: {
       en: "Interactively grow empowered for process-centric total linkage. ",
@@ -314,8 +314,8 @@ export const storeCustomization = {
       de: "Rufen Sie uns an",
     },
     call_box_phone: {
-      en: "029-00124667",
-      de: "029-00124667",
+      en: "+91 8866908906",
+      de: "+91 8866908906",
     },
     call_box_text: {
       en: "Distinctively disseminate focused solutions clicks-and-mortar ministate. ",
@@ -326,16 +326,16 @@ export const storeCustomization = {
       de: "Ort",
     },
     address_box_address_one: {
-      en: "Boho One, Bridge Street West, Middlesbrough, North Yorkshire, TS2 1AE.",
-      de: "Cecilia Chapman",
+      en: "At Movaiya, Beside World Steel, Paddhari - Mitana Road, Paddhari,",
+      de: "Rajkot - Gujarat.",
     },
     address_box_address_two: {
-      en: "561-4535 Nulla LA ",
-      de: "561-4535 Nulla LA",
+      en: "Rajkot - Gujarat.",
+      de: "Rajkot - Gujarat.",
     },
     address_box_address_three: {
-      en: "United States 96522. ",
-      de: "United States 96522",
+      en: "India",
+      de: "India",
     },
     form_title: {
       en: "For any suppoort just send your query ",
@@ -393,8 +393,8 @@ export const storeCustomization = {
       de: "Häufig gestellte Fragen",
     },
     faq_one: {
-      en: "How does the KachaBazar work?",
-      de: "Wie funktioniert der KachaBazar?",
+      en: "How does the SatvaCare work?",
+      de: "Wie funktioniert der SatvaCare?",
     },
     description_one: {
       en: "Yes. You can cancel your subscription anytime. Your subscription will continue to be active until the end of your current term (month or year) but it will not auto-renew. Unless you delete your account manually, your account and all data will be deleted 60 days from the day your subscription becomes inactive.",
@@ -768,22 +768,22 @@ export const storeCustomization = {
       de: "Neueste Nachrichten",
     },
     block2_sub_title1: {
-      en: "Fish & Meat",
+      en: "Crop Farming",
       de: "Fisch Fleisch",
     },
     block2_sub_link1: "/search?category=fish-meat",
     block2_sub_title2: {
-      en: "Soft Drink",
+      en: "Livestock Farming",
       de: "Erfrischungsgetränk",
     },
     block2_sub_link2: "/search?category=drinks",
     block2_sub_title3: {
-      en: "Milk & Dairy",
+      en: "Mixed Farming",
       de: "Milch und Milchprodukte",
     },
     block2_sub_link3: "/search?category=milk-dairy",
     block2_sub_title4: {
-      en: "Beauty & Health",
+      en: "Aquaculture",
       de: "Schönheit und Gesundheit",
     },
     block2_sub_link4: "/search?category=beauty-health",
@@ -826,7 +826,7 @@ export const storeCustomization = {
     social_whatsapp: "https://web.whatsapp.com/",
     payment_method_img:
       "https://res.cloudinary.com/ahossain/image/upload/v1697688607/settings/payment-logo_qhslgz.webp",
-    bottom_contact: "+6599887766",
+    bottom_contact: "+91 8866908906",
   },
   slug: {
     right_box_status: true,

@@ -1,2 +1,2 @@
-KachaBazar Frontend Documentation
+SatvaCare Frontend Documentation
 

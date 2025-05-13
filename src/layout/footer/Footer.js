@@ -439,7 +439,7 @@ const Footer = () => {
             rel="noopener noreferrer"
             className="text-emerald-500"
           >
-            HtmlLover
+            SatvaCare
           </Link>
           , All rights reserved.
         </p>
