@@ -66,7 +66,7 @@ const Navbar = () => {
                         height={150}
                         className="w-full h-auto"
                         priority
-                        src="/logo/logo.png"
+                        src="/logo/logo-1.png"
                         alt="logo"
                         />
               </div>
