@@ -36,7 +36,7 @@ export const getDynamicAuthOptions = async () => {
     //   clientId: storeSetting?.github_id || "",
     //   clientSecret: storeSetting?.github_secret || "",
     // }),
-    // Facebook({
+    // Facebook({ 
     //   clientId: storeSetting?.facebook_id || "",
     //   clientSecret: storeSetting?.facebook_secret || "",
     // }),
