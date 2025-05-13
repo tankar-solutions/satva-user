@@ -21,7 +21,7 @@ class MyDocument extends Document {
             property="og:title"
             content={
               setting?.meta_title ||
-              "KachaBazar - React Grocery & Organic Food Store e-commerce Template"
+              "SatvaCare - React Grocery & Organic Food Store e-commerce Template"
             }
           />
           <meta property="og:type" content="eCommerce Website" />
