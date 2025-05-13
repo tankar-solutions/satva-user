@@ -7,7 +7,8 @@ const useUtilsFunction = () => {
 
   const { globalSetting } = useGetSetting();
 
-  const currency =  "₹";
+  // Default to Indian Rupee (₹) but can be overridden by globalSetting if needed
+  const currency = globalSetting?.default_currency || "₹";
 
   //for date and time format
   const showTimeFormat = (data, timeFormat) => {
@@ -23,7 +24,6 @@ const useUtilsFunction = () => {
   };
 
   //for formatting number
-
   const getNumber = (value = 0) => {
     return Number(parseFloat(value || 0).toFixed(2));
   };
@@ -47,6 +47,11 @@ const useUtilsFunction = () => {
     return data !== undefined ? data : "!#";
   };
 
+  // Format currency value with Indian Rupee symbol
+  const formatIndianCurrency = (value) => {
+    return `${currency} ${getNumberTwo(value)}`;
+  };
+
   return {
     lang,
     currency,
@@ -59,6 +64,7 @@ const useUtilsFunction = () => {
     globalSetting,
     showDateTimeFormat,
     showingTranslateValue,
+    formatIndianCurrency, // Add this new function
   };
 };
 
