@@ -4,8 +4,7 @@ import { useForm } from "react-hook-form";
 import { useSearchParams } from "next/navigation";
 import { signIn } from "next-auth/react";
 
-//internal import
-
+// Internal imports
 import { notifyError, notifySuccess } from "@utils/toast";
 import CustomerServices from "@services/CustomerServices";
 
@@ -21,65 +20,65 @@ const useLoginSubmit = () => {
     formState: { errors },
   } = useForm();
 
-  // console.log("router", router.pathname === "/auth/signup");
-
   const submitHandler = async ({ name, email, password, phone }) => {
     setLoading(true);
-
-    // console.log("submitHandler", phone);
 
     try {
       if (router.pathname === "/auth/signup") {
         // Custom sign-up method
-        // console.log("Need to use custom sign-up method");
-
-        // Call the sign-up API which also handles sending the email verification
         const res = await CustomerServices.verifyEmailAddress({
           name,
           email,
           password,
         });
 
-        // console.log("res", res);
         notifySuccess(res.message);
         return setLoading(false);
       } else if (router.pathname === "/auth/forget-password") {
-        // Call the forget password API for reset password
+        // Forget password API for reset password
         const res = await CustomerServices.forgetPassword({
           email,
         });
 
-        // console.log("res", res);
         notifySuccess(res.message);
         return setLoading(false);
       } else if (router.pathname === "/auth/phone-signup") {
+        // Phone-based sign-up
         const res = await CustomerServices.verifyPhoneNumber({
           phone,
         });
+
         notifySuccess(res.message);
-        // console.log("sing up with phone", phone, "result", res);
         return setLoading(false);
-      }else {
-          const result = await signIn("credentials", {
-            redirect: false,
+      } else {
+        // Standard login using NextAuth
+        const result = await signIn("credentials", {
+          redirect: false,
+          email,
+          password,
+          callbackUrl: "/user/dashboard",
+        });
+
+        if (result?.error) {
+          notifyError(result?.error);
+          console.error("Error during sign-in:", result.error);
+        } else if (result?.ok) {
+          // Save login details to local storage
+          const user = {
             email,
-            password,
-            callbackUrl: "/user/dashboard",
-          });
-        
-          if (result?.error) {
-            notifyError(result?.error);
-            console.error("Error during sign-in:", result.error);
-          } else if (result?.ok) {
-            const url = redirectUrl || "/user/dashboard"; // fallback if result.url is null
-            router.push(url); // client-side navigation
-          }
-        
-          setLoading(false);
+          };
+          const token = "dummyAuthToken"; // Replace with your actual token logic if available
+          localStorage.setItem("authToken", token);
+          localStorage.setItem("user", JSON.stringify(user));
+
+          const url = redirectUrl || result?.url || "/user/dashboard";
+          router.push(url); // Navigate to the target page
         }
-        
+
+        setLoading(false);
+      }
     } catch (error) {
-      // Catch any unexpected errors here (e.g., network issues, unexpected API failures)
+      // Handle unexpected errors
       console.error(
         "Error in submitHandler:",
         error?.response?.data?.message || error?.message

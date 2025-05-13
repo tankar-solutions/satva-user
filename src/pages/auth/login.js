@@ -1,7 +1,9 @@
+import { useEffect } from "react";
+import { useRouter } from "next/router";
 import Link from "next/link";
 import { FiLock, FiMail } from "react-icons/fi";
 
-//internal  import
+// Internal imports
 import Layout from "@layout/Layout";
 import Error from "@components/form/Error";
 import useLoginSubmit from "@hooks/useLoginSubmit";
@@ -9,11 +11,21 @@ import InputArea from "@components/form/InputArea";
 import BottomNavigation from "@components/login/BottomNavigation";
 
 const Login = () => {
+  const router = useRouter();
   const { handleSubmit, submitHandler, register, errors, loading } =
     useLoginSubmit();
 
+  useEffect(() => {
+    // Check if authToken exists in localStorage
+    const token = localStorage.getItem("authToken");
+    if (token) {
+      // Redirect the user to the dashboard if logged in
+      router.push("/user/dashboard");
+    }
+  }, [router]);
+
   return (
-    <Layout title="Login" description="This is login page">
+    <Layout title="Login" description="This is the login page">
       <div className="mx-auto max-w-screen-2xl px-3 sm:px-10">
         <div className="py-4 flex flex-col lg:flex-row w-full">
           <div className="w-full sm:p-5 lg:p-8">
@@ -26,7 +38,7 @@ const Login = () => {
                   </p>
                 </div>
                 <form
-                  onSubmit={handleSubmit(submitHandler)}
+                  onSubmit={handleSubmit((data) => submitHandler(data))}
                   className="flex flex-col justify-center"
                 >
                   <div className="grid grid-cols-1 gap-5">
@@ -54,10 +66,8 @@ const Login = () => {
                         Icon={FiLock}
                         autocomplete="current-password"
                       />
-
                       <Error errorName={errors.password} />
                     </div>
-
                     <div className="flex items-center justify-between">
                       <div className="flex ms-auto">
                         <Link
