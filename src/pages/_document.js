@@ -39,7 +39,7 @@ class MyDocument extends Document {
           <meta
             property="og:url"
             content={
-              setting?.meta_url || "https://kachabazar-store.vercel.app/"
+              setting?.meta_url || "https://SatvaCare-store.vercel.app/"
             }
           />
           <meta
