@@ -19,27 +19,27 @@ const queryClient = new QueryClient({
 
 export const getDynamicAuthOptions = async () => {
   // Fetch store settings from the cache or trigger a fetch if not cached
-  const storeSetting = await queryClient.fetchQuery({
-    queryKey: ["storeSetting"],
-    queryFn: async () => await SettingServices.getStoreSetting(),
-    staleTime: 4 * 60 * 1000, // Api request after 4 minutes
-  });
+  // const storeSetting = await queryClient.fetchQuery({
+  //   queryKey: ["storeSetting"],
+  //   queryFn: async () => await SettingServices.getStoreSetting(),
+  //   staleTime: 4 * 60 * 1000, // Api request after 4 minutes
+  // });
 
   // console.log("storeSetting", storeSetting);
 
   const providers = [
-    Google({
-      clientId: storeSetting?.google_id || "",
-      clientSecret: storeSetting?.google_secret || "",
-    }),
-    GitHub({
-      clientId: storeSetting?.github_id || "",
-      clientSecret: storeSetting?.github_secret || "",
-    }),
-    Facebook({
-      clientId: storeSetting?.facebook_id || "",
-      clientSecret: storeSetting?.facebook_secret || "",
-    }),
+    // Google({
+    //   clientId: storeSetting?.google_id || "",
+    //   clientSecret: storeSetting?.google_secret || "",
+    // }),
+    // GitHub({
+    //   clientId: storeSetting?.github_id || "",
+    //   clientSecret: storeSetting?.github_secret || "",
+    // }),
+    // Facebook({
+    //   clientId: storeSetting?.facebook_id || "",
+    //   clientSecret: storeSetting?.facebook_secret || "",
+    // }),
     Credentials({
       name: "Credentials",
       credentials: {
