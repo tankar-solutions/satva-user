@@ -59,27 +59,25 @@ const useLoginSubmit = () => {
         notifySuccess(res.message);
         // console.log("sing up with phone", phone, "result", res);
         return setLoading(false);
-      } else {
-        // Login logic (no changes)
-        const result = await signIn("credentials", {
-          redirect: false,
-          email,
-          password,
-          callbackUrl: "/about-us",
-        });
-
-        // console.log("result", result);
-
-        if (result?.error) {
-          notifyError(result?.error);
-          console.error("Error during sign-in:", result.error);
-          setLoading(false);
-        } else if (result?.ok) {
-          const url = redirectUrl ? "/checkout" : result.url;
-          router.push(url);
+      }else {
+          const result = await signIn("credentials", {
+            redirect: false,
+            email,
+            password,
+            callbackUrl: "/user/dashboard",
+          });
+        
+          if (result?.error) {
+            notifyError(result?.error);
+            console.error("Error during sign-in:", result.error);
+          } else if (result?.ok) {
+            const url = redirectUrl || "/user/dashboard"; // fallback if result.url is null
+            router.push(url); // client-side navigation
+          }
+        
           setLoading(false);
         }
-      }
+        
     } catch (error) {
       // Catch any unexpected errors here (e.g., network issues, unexpected API failures)
       console.error(
