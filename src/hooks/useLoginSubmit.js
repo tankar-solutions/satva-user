@@ -65,7 +65,7 @@ const useLoginSubmit = () => {
           redirect: false,
           email,
           password,
-          callbackUrl: "/user/about-us",
+          callbackUrl: "/about-us",
         });
 
         // console.log("result", result);
