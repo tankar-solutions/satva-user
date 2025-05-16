@@ -41,14 +41,12 @@ const Home = ({ popularProducts, discountProducts, attributes }) => {
           <div className="min-h-screen">
             <StickyCart />
             <div className="bg-white">
-              <div className="mx-auto py-5 max-w-screen-2xl px-3 sm:px-10">
+              <div className="mx-auto py-5 max-w-screen-3xl px-3 sm:px-10">
                 <div className="flex w-full">
-                  <div className="flex-shrink-0 xl:pr-6 lg:block w-full lg:w-3/5">
+                  <div className="flex-shrink-0 xl:pr-6 lg:block w-full  lg:h-[50%]">
                     <MainCarousel />
                   </div>
-                  <div className="w-full hidden lg:flex">
-                    <OfferCard />
-                  </div>
+                  
                 </div>
                 {storeCustomizationSetting?.home?.promotion_banner_status && (
                   <div className="bg-orange-100 px-10 py-6 rounded-lg mt-6">
@@ -60,31 +58,31 @@ const Home = ({ popularProducts, discountProducts, attributes }) => {
 
             {/* feature category's */}
             {storeCustomizationSetting?.home?.featured_status && (
-  <div className="bg-gradient-to-br from-gray-50 to-gray-100 py-12 lg:py-20">
-    <div className="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8">
-      <div className="text-center mb-12">
-        <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">
-          Shop by Category
-        </h2>
-        <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
-          Discover our carefully curated collections
-        </p>
-      </div>
-      
-      <div className="relative">
-        <FeatureCategory 
-          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6"
-          itemClassName="group relative overflow-hidden rounded-xl bg-white shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 hover:border-primary-100"
-          imageClassName="w-full h-40 object-cover transition-transform duration-500 group-hover:scale-105"
-          overlayClassName="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-          titleClassName="absolute bottom-4 left-4 text-white font-medium text-lg opacity-100 group-hover:opacity-0 transition-opacity duration-300"
-          countClassName="absolute top-4 right-4 bg-white/90 text-gray-900 px-2 py-1 rounded-full text-xs font-medium"
-        />
-      </div>
-    </div>
-  </div>
-)}
-             {/* <div className="mb-10 flex justify-center">
+              <div className="bg-gradient-to-br from-gray-50 to-gray-100 py-12 lg:py-20">
+                <div className="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8">
+                  <div className="text-center mb-12">
+                    <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">
+                      Shop by Category
+                    </h2>
+                    <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
+                      Discover our carefully curated collections
+                    </p>
+                  </div>
+
+                  <div className="relative">
+                    <FeatureCategory
+                      className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6"
+                      itemClassName="group relative overflow-hidden rounded-xl bg-white shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 hover:border-primary-100"
+                      imageClassName="w-full h-40 object-cover transition-transform duration-500 group-hover:scale-105"
+                      overlayClassName="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                      titleClassName="absolute bottom-4 left-4 text-white font-medium text-lg opacity-100 group-hover:opacity-0 transition-opacity duration-300"
+                      countClassName="absolute top-4 right-4 bg-white/90 text-gray-900 px-2 py-1 rounded-full text-xs font-medium"
+                    />
+                  </div>
+                </div>
+              </div>
+            )}
+            {/* <div className="mb-10 flex justify-center">
                     <div className="text-center w-full lg:w-2/5">
                       <h2 className="text-xl lg:text-2xl mb-2 font-serif font-semibold">
                         <CMSkeleton
