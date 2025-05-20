@@ -42,7 +42,7 @@ const FeatureCategory = () => {
           {data[0]?.children?.map((category, i) => (
             <li className="group" key={i + 1}>
               <div
-                className="flex flex-col items-center justify-between text-center border border-gray-100 shadow-sm bg-white p-5 cursor-pointer transition duration-300 ease-in-out transform hover:shadow-lg hover:bg-orange-50 h-full rounded-md"
+                className="flex flex-col items-center justify-between text-center border border-gray-100 shadow-sm bg-white p-5 cursor-pointer transition duration-300 ease-in-out transform hover:shadow-lg hover:bg-orange-50 h-68 w-56 rounded-md"
                 onClick={() =>
                   handleCategoryClick(
                     category._id,
@@ -54,8 +54,8 @@ const FeatureCategory = () => {
                   <Image
                     src={category?.icon || "https://res.cloudinary.com/ahossain/image/upload/v1655097002/placeholder_kvepfp.png"}
                     alt="category"
-                    width={100}
-                    height={100}
+                    width={200}
+                    height={200}
                     className="object-contain"
                   />
                 </div>

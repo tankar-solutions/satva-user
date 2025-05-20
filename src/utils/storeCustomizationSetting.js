@@ -724,7 +724,7 @@ export const storeCustomization = {
     bottom_contact_status: true,
     social_links_status: true,
     shipping_card: {
-      en: "Free Shipping From €500.00",
+      en: "Free Shipping From ₹500.00",
       de: "Kostenloser Versand ab 500,00 €",
     },
     support_card: {

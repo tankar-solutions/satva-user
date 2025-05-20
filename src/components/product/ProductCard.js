@@ -4,8 +4,6 @@ import { useState } from "react";
 import { IoAdd, IoBagAddSharp, IoRemove } from "react-icons/io5";
 import { useCart } from "react-use-cart";
 
-//internal import
-
 import Price from "@components/common/Price";
 import Stock from "@components/common/Stock";
 import { notifyError } from "@utils/toast";
@@ -26,8 +24,6 @@ const ProductCard = ({ product, attributes }) => {
   const { showingTranslateValue } = useUtilsFunction();
 
   const currency = globalSetting?.default_currency || "₹";
-
-  // console.log('attributes in product cart',attributes)
 
   const handleAddItem = (p) => {
     if (p.stock < 1) return notifyError("Insufficient stock!");
@@ -65,11 +61,26 @@ const ProductCard = ({ product, attributes }) => {
         />
       )}
 
-      <div className="group box-border overflow-hidden flex rounded-md shadow-sm pe-0 flex-col items-center bg-white relative">
-        <div className="w-full flex justify-between">
-          <Stock product={product} stock={product.stock} card />
-          <Discount product={product} />
+      <div
+        className={`group relative bg-white rounded-2xl shadow-md overflow-hidden flex flex-col items-center transition-transform transform duration-300 ease-in-out
+          hover:scale-[1.05] hover:shadow-xl cursor-pointer select-none 
+          ${
+            product.stock < 1 ? "opacity-70 pointer-events-none" : ""
+          }`}
+      >
+        {/* Stock & Discount badges */}
+        <div className="w-full flex justify-between px-5 pt-5">
+          <Stock
+            product={product}
+            stock={product.stock}
+            card
+          />
+          <Discount
+            product={product}
+          />
         </div>
+
+        {/* Product Image with hover zoom */}
         <div
           onClick={() => {
             handleModalOpen(!modalOpen, product._id);
@@ -78,38 +89,44 @@ const ProductCard = ({ product, attributes }) => {
               `opened ${showingTranslateValue(product?.title)} product modal`
             );
           }}
-          className="relative flex justify-center cursor-pointer pt-2 w-full h-44"
+          className="relative w-full h-60 flex justify-center items-center p-5 cursor-zoom-in overflow-hidden"
         >
-          <div className="relative w-full h-full p-2">
-            {product.image[0] ? (
-              <ImageWithFallback src={product.image[0]} alt="product" />
-            ) : (
-              <Image
-                src="https://res.cloudinary.com/ahossain/image/upload/v1655097002/placeholder_kvepfp.png"
-                fill
-                style={{
-                  objectFit: "contain",
-                }}
-                sizes="100%"
-                alt="product"
-                className="object-contain transition duration-150 ease-linear transform group-hover:scale-105"
-              />
-            )}
-          </div>
-        </div>
-        <div className="w-full px-3 lg:px-4 pb-4 overflow-hidden">
-          <div className="relative mb-1">
-            <span className="text-gray-400 font-medium text-xs d-block mb-1">
-              {product.unit}
-            </span>
-            <h2 className="text-heading truncate mb-0 block text-sm font-medium text-gray-600">
-              <span className="line-clamp-2">
-                {showingTranslateValue(product?.title)}
+          {product.image[0] ? (
+            <ImageWithFallback
+              src={product.image[0]}
+              alt={showingTranslateValue(product?.title)}
+              className="object-contain rounded-xl transition-transform duration-500 group-hover:scale-110"
+              style={{ maxHeight: "180px", width: "auto" }}
+            />
+          ) : (
+            <Image
+              src="https://res.cloudinary.com/ahossain/image/upload/v1655097002/placeholder_kvepfp.png"
+              fill
+              style={{ objectFit: "contain" }}
+              sizes="100%"
+              alt="product"
+              className="rounded-xl"
+            />
+          )}
+          {product.stock < 1 && (
+            <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center rounded-xl">
+              <span className="text-white font-bold text-xl tracking-wide">
+                Sold Out
               </span>
-            </h2>
-          </div>
+            </div>
+          )}
+        </div>
 
-          <div className="flex justify-between items-center text-heading text-sm sm:text-base space-s-2 md:text-base lg:text-xl">
+        {/* Product details */}
+        <div className="w-full px-6 pb-6 flex flex-col gap-3">
+          <span className="text-gray-500 text-xs uppercase tracking-widest font-semibold select-text">
+            {product.unit}
+          </span>
+          <h2 className="text-gray-800 text-xl font-semibold line-clamp-2 select-text">
+            {showingTranslateValue(product?.title)}
+          </h2>
+
+          <div className="flex justify-between items-center mt-2">
             <Price
               card
               product={product}
@@ -126,52 +143,50 @@ const ProductCard = ({ product, attributes }) => {
               }
             />
 
+            {/* Cart controls */}
             {inCart(product._id) ? (
-              <div>
+              <div className="flex items-center space-x-3 bg-emerald-600 rounded-full px-4 py-1 select-none shadow-lg">
                 {items.map(
                   (item) =>
                     item.id === product._id && (
                       <div
                         key={item.id}
-                        className="h-9 w-auto flex flex-wrap items-center justify-evenly py-1 px-2 bg-emerald-500 text-white rounded"
+                        className="flex items-center space-x-4"
                       >
                         <button
+                          aria-label="Decrease quantity"
                           onClick={() =>
                             updateItemQuantity(item.id, item.quantity - 1)
                           }
+                          className="bg-white hover:bg-gray-100 text-emerald-600 rounded-full p-2 shadow-md transition transform hover:scale-110 active:scale-95"
                         >
-                          <span className="text-dark text-base">
-                            <IoRemove />
-                          </span>
+                          <IoRemove size={20} />
                         </button>
-                        <p className="text-sm text-dark px-1 font-serif font-semibold">
+                        <p className="text-white font-semibold text-base font-serif min-w-[24px] text-center select-text">
                           {item.quantity}
                         </p>
                         <button
+                          aria-label="Increase quantity"
                           onClick={() =>
                             item?.variants?.length > 0
                               ? handleAddItem(item)
                               : handleIncreaseQuantity(item)
                           }
+                          className="bg-white hover:bg-gray-100 text-emerald-600 rounded-full p-2 shadow-md transition transform hover:scale-110 active:scale-95"
                         >
-                          <span className="text-dark text-base">
-                            <IoAdd />
-                          </span>
+                          <IoAdd size={20} />
                         </button>
                       </div>
                     )
-                )}{" "}
+                )}
               </div>
             ) : (
               <button
                 onClick={() => handleAddItem(product)}
-                aria-label="cart"
-                className="h-9 w-9 flex items-center justify-center border border-gray-200 rounded text-emerald-500 hover:border-emerald-500 hover:bg-emerald-500 hover:text-white transition-all"
+                aria-label="Add to cart"
+                className="flex items-center justify-center h-12 w-12 rounded-full border-2 border-emerald-600 text-emerald-600 hover:bg-emerald-600 hover:text-white transition-shadow shadow-md hover:shadow-xl active:scale-95"
               >
-                {" "}
-                <span className="text-xl">
-                  <IoBagAddSharp />
-                </span>{" "}
+                <IoBagAddSharp size={24} />
               </button>
             )}
           </div>

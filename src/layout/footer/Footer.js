@@ -276,7 +276,7 @@ const Footer = () => {
                 className="mr-3 lg:mr-12 xl:mr-12"
                 rel="noreferrer"
               >
-                <div className="relative -mt-20 w-48 h-16 mb-6">
+                <div className="relative  w-48 h-16">
                 <Image
                   width={300} 
                   height={150}
@@ -287,7 +287,7 @@ const Footer = () => {
                 />
               </div>
               </Link>
-              <p className="leading-7 font-sans text-sm text-gray-600 gap-4 mt-3">
+              <p className="leading-7 font-sans text-sm text-gray-600 gap-4 ">
                 <CMSkeleton
                   count={1}
                   height={10}

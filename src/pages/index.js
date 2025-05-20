@@ -1,28 +1,27 @@
 import { SidebarContext } from "@context/SidebarContext";
 import { useContext, useEffect } from "react";
 import { useRouter } from "next/router";
+import Tab from "react-bootstrap/Tab";
+import Nav from "react-bootstrap/Nav";
+
+
 
 //internal import
 import Layout from "@layout/Layout";
 import Banner from "@components/banner/Banner";
 import useGetSetting from "@hooks/useGetSetting";
-import CardTwo from "@components/cta-card/CardTwo";
-import OfferCard from "@components/offer/OfferCard";
 import StickyCart from "@components/cart/StickyCart";
 import Loading from "@components/preloader/Loading";
 import ProductServices from "@services/ProductServices";
-import ProductCard from "@components/product/ProductCard";
 import MainCarousel from "@components/carousel/MainCarousel";
 import FeatureCategory from "@components/category/FeatureCategory";
 import AttributeServices from "@services/AttributeServices";
-import CMSkeleton from "@components/preloader/CMSkeleton";
+import PhotoGallery from "@components/slider/PhotoGallery";
 
 const Home = ({ popularProducts, discountProducts, attributes }) => {
   const router = useRouter();
   const { isLoading, setIsLoading } = useContext(SidebarContext);
   const { loading, error, storeCustomizationSetting } = useGetSetting();
-
-  // console.log("storeCustomizationSetting", storeCustomizationSetting);
 
   useEffect(() => {
     if (router.asPath === "/") {
@@ -46,7 +45,6 @@ const Home = ({ popularProducts, discountProducts, attributes }) => {
                   <div className="flex-shrink-0 xl:pr-6 lg:block w-full  lg:h-[50%]">
                     <MainCarousel />
                   </div>
-                  
                 </div>
                 {storeCustomizationSetting?.home?.promotion_banner_status && (
                   <div className="bg-orange-100 px-10 py-6 rounded-lg mt-6">
@@ -58,185 +56,131 @@ const Home = ({ popularProducts, discountProducts, attributes }) => {
 
             {/* feature category's */}
             {storeCustomizationSetting?.home?.featured_status && (
-              <div className="bg-gradient-to-br from-gray-50 to-gray-100 py-12 lg:py-20">
+              <div className="bg-gradient-to-br from-gray-50 to-gray-100 py-16 lg:py-24">
                 <div className="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8">
-                  <div className="text-center mb-12">
-                    <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">
-                      Shop by Category
+                  <div className="text-center mb-16">
+                    <h2 className="text-4xl font-bold text-gray-900 sm:text-5xl lg:text-6xl font-serif tracking-tight">
+                    Nourishing Earth, Growing Health
                     </h2>
-                    <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
-                      Discover our carefully curated collections
+                    <p className="mt-6 text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                     Our Collections
                     </p>
                   </div>
 
                   <div className="relative">
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className=" w-full max-w-4xl h-full blur-3xl rounded-full"></div>
+                    </div>
+
                     <FeatureCategory
-                      className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6"
-                      itemClassName="group relative overflow-hidden rounded-xl bg-white shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 hover:border-primary-100"
-                      imageClassName="w-full h-40 object-cover transition-transform duration-500 group-hover:scale-105"
-                      overlayClassName="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                      titleClassName="absolute bottom-4 left-4 text-white font-medium text-lg opacity-100 group-hover:opacity-0 transition-opacity duration-300"
-                      countClassName="absolute top-4 right-4 bg-white/90 text-gray-900 px-2 py-1 rounded-full text-xs font-medium"
+                      className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 relative z-10"
+                      itemClassName="group relative overflow-hidden rounded-2xl bg-white shadow-lg hover:shadow-xl transition-all duration-500 border border-gray-100 hover:border-primary-200"
+                      imageClassName="w-full h-56 sm:h-56 object-cover transition-transform duration-700 group-hover:scale-110"
+                      overlayClassName="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                      titleClassName="absolute bottom-6 left-6 text-white font-semibold text-xl sm:text-2xl opacity-100 group-hover:opacity-0 transition-opacity duration-300"
+                      countClassName="absolute top-5 right-5 bg-white/90 text-gray-900 px-3 py-1.5 rounded-full text-sm font-medium shadow-sm group-hover:bg-primary-500 group-hover:text-white transition-colors duration-300"
+                      infoClassName="absolute bottom-0 left-0 w-full p-6 translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500"
                     />
                   </div>
+
+                  <div className="mt-16 text-center">
+                    <button className="inline-flex items-center px-8 py-3.5 bg-primary-600 hover:bg-primary-700 text-black font-medium rounded-full text-lg transition-all duration-300 shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2">
+                      View All Categories
+                      <svg
+                        className="ml-2 -mr-1 w-5 h-5"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                    </button>
+                  </div>
                 </div>
               </div>
             )}
-            {/* <div className="mb-10 flex justify-center">
-                    <div className="text-center w-full lg:w-2/5">
-                      <h2 className="text-xl lg:text-2xl mb-2 font-serif font-semibold">
-                        <CMSkeleton
-                          count={1}
-                          height={30}
-                          loading={loading}
-                          data={storeCustomizationSetting?.home?.feature_title}
-                        />
-                      </h2>
-                      <p className="text-base font-sans text-gray-600 leading-6">
-                        <CMSkeleton
-                          count={4}
-                          height={10}
-                          error={error}
-                          loading={loading}
-                          data={
-                            storeCustomizationSetting?.home?.feature_description
-                          }
-                        />
-                      </p>
-                    </div>
-                  </div> */}
 
-            {/* popular products */}
-            {/* {storeCustomizationSetting?.home?.popular_products_status && (
-              <div className="bg-gray-50 lg:py-16 py-10 mx-auto max-w-screen-2xl px-3 sm:px-10">
-                <div className="mb-10 flex justify-center">
-                  <div className="text-center w-full lg:w-2/5">
-                    <h2 className="text-xl lg:text-2xl mb-2 font-serif font-semibold">
-                      <CMSkeleton
-                        count={1}
-                        height={30}
-                        loading={loading}
-                        data={storeCustomizationSetting?.home?.popular_title}
+            {/* About Section */}
+            <section className="about-section pt-20 pb-28">
+              <div className="container mx-auto px-4">
+                <div className="flex flex-col lg:flex-row items-center gap-12">
+                  {/* Image Grid - LEFT SIDE */}
+                  <div className="flex-1 grid grid-cols-2 gap-4">
+                    <div className="flex flex-col gap-4">
+                      <img
+                        src="/about/about1.jpg"
+                        alt="About"
+                        className="rounded-lg w-full h-auto object-cover"
                       />
-                    </h2>
-                    <p className="text-base font-sans text-gray-600 leading-6">
-                      <CMSkeleton
-                        count={5}
-                        height={10}
-                        error={error}
-                        loading={loading}
-                        data={
-                          storeCustomizationSetting?.home?.popular_description
-                        }
+                      <img
+                        src="/about/about3.jpg"
+                        alt="About"
+                        className="rounded-lg w-full h-auto object-cover"
                       />
-                    </p>
+                    </div>
+                    <div className="flex items-center">
+                      <img
+                        src="/about/about2.jpg"
+                        alt="About"
+                        className="rounded-lg w-full h-auto object-cover"
+                      />
+                    </div>
                   </div>
-                </div>
-                <div className="flex">
-                  <div className="w-full">
-                    {loading ? (
-                      <CMSkeleton
-                        count={20}
-                        height={20}
-                        error={error}
-                        loading={loading}
-                      />
-                    ) : (
-                      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 xl:grid-cols-5 2xl:grid-cols-6 gap-2 md:gap-3 lg:gap-3">
-                        {popularProducts
-                          ?.slice(
-                            0,
-                            storeCustomizationSetting?.home
-                              ?.popular_product_limit
-                          )
-                          .map((product) => (
-                            <ProductCard
-                              key={product._id}
-                              product={product}
-                              attributes={attributes}
-                            />
-                          ))}
+
+                  {/* Text Content - RIGHT SIDE */}
+                  <div className="flex-1">
+                    <div className="about-content">
+                      <div className="section-title mb-6">
+                        <span className="sub-title text-orange-500 text-2xl font-semibold mb-2 block">
+                          About Company
+                        </span>
+                        <h2 className="text-3xl font-bold leading-snug mb-4">
+                          Botanical Based Bio-Pesticides Manufacturer In India
+                        </h2>
                       </div>
-                    )}
+
+                      <Tab.Container defaultActiveKey="vegetables">
+                        <Tab.Content>
+                          <Tab.Pane eventKey="vegetables">
+                            <p className="text-gray-700 leading-relaxed">
+                              Satvacare provides ECOCERT-approved, NOP-NPOP
+                              certified, and patented organic pest management
+                              solutions including bio-insecticides, fungicides,
+                              acaricides, adjuvants, and CIBRC-certified
+                              neem-based products. With a strong focus on
+                              reducing production costs for farmers, Satvacare
+                              promotes biodiversity and healthy living by
+                              replacing harmful chemical pesticides with
+                              botanical-based, eco-friendly alternatives that
+                              meet global export standards and protect the
+                              environment.
+                            </p>
+                          </Tab.Pane>
+                          <Tab.Pane eventKey="agriculture">
+                            <p className="text-gray-700 leading-relaxed">
+                              On the other hand we denounce with righteous
+                              indignation and dislike men who are beguiled and
+                              demoralized by the charms of pleasure of the
+                              moment so blinded by desire, that they cannot
+                              foresee the pain.
+                            </p>
+                          </Tab.Pane>
+                        </Tab.Content>
+                      </Tab.Container>
+                    </div>
                   </div>
                 </div>
               </div>
-            )} */}
+            </section>
 
             {/* promotional banner card */}
-            {storeCustomizationSetting?.home?.delivery_status && (
-              <div className="block mx-auto max-w-screen-2xl">
-                <div className="mx-auto max-w-screen-2xl px-4 sm:px-10">
-                  <div className="lg:p-16 p-6 bg-emerald-500 shadow-sm border rounded-lg">
-                    <CardTwo />
-                  </div>
-                </div>
-              </div>
-            )}
-
-            {/* discounted products */}
-            {/* {storeCustomizationSetting?.home?.discount_product_status &&
-              discountProducts?.length > 0 && (
-                <div
-                  id="discount"
-                  className="bg-gray-50 lg:py-16 py-10 mx-auto max-w-screen-2xl px-3 sm:px-10"
-                >
-                  <div className="mb-10 flex justify-center">
-                    <div className="text-center w-full lg:w-2/5">
-                      <h2 className="text-xl lg:text-2xl mb-2 font-serif font-semibold">
-                        <CMSkeleton
-                          count={1}
-                          height={30}
-                          loading={loading}
-                          data={
-                            storeCustomizationSetting?.home
-                              ?.latest_discount_title
-                          }
-                        />
-                      </h2>
-                      <p className="text-base font-sans text-gray-600 leading-6">
-                        <CMSkeleton
-                          count={5}
-                          height={20}
-                          loading={loading}
-                          data={
-                            storeCustomizationSetting?.home
-                              ?.latest_discount_description
-                          }
-                        />
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex">
-                    <div className="w-full">
-                      {loading ? (
-                        <CMSkeleton
-                          count={20}
-                          height={20}
-                          error={error}
-                          loading={loading}
-                        />
-                      ) : (
-                        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 xl:grid-cols-5 2xl:grid-cols-6 gap-2 md:gap-3 lg:gap-3">
-                          {discountProducts
-                            ?.slice(
-                              0,
-                              storeCustomizationSetting?.home
-                                ?.latest_discount_product_limit
-                            )
-                            .map((product) => (
-                              <ProductCard
-                                key={product._id}
-                                product={product}
-                                attributes={attributes}
-                              />
-                            ))}
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                </div>
-              )} */}
+            <section className="gallery-area pt-130 rpt-100">
+              <PhotoGallery />
+            </section>
           </div>
         </Layout>
       )}
