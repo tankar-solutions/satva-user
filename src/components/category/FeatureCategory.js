@@ -60,7 +60,7 @@ const FeatureCategory = () => {
                   />
                 </div>
 
-                <h3 className="text-sm text-gray-700 font-semibold group-hover:text-orange-500 mb-2 line-clamp-1">
+                <h3 className="text-sm text-gray-700 font-semibold group-hover:text-[#ef8201] mb-2 line-clamp-1">
                   {showingTranslateValue(category?.name)}
                 </h3>
 
@@ -78,7 +78,7 @@ const FeatureCategory = () => {
                             showingTranslateValue(child?.name)
                           );
                         }}
-                        className="flex items-center text-xs text-gray-400 font-serif hover:text-orange-500 cursor-pointer"
+                        className="flex items-center text-xs text-gray-400 font-serif hover:text-[#ef8201] cursor-pointer"
                       >
                         <IoChevronForwardSharp className="mr-1" />
                         {showingTranslateValue(child?.name)}

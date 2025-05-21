@@ -243,14 +243,14 @@ const ProductScreen = ({ product, attributes, relatedProducts }) => {
             <div className="mx-auto px-3 lg:px-10 max-w-screen-2xl">
               <div className="flex items-center pb-4">
                 <ol className="flex items-center w-full overflow-hidden font-serif">
-                  <li className="text-sm pr-1 transition duration-200 ease-in cursor-pointer hover:text-emerald-500 font-semibold">
+                  <li className="text-sm pr-1 transition duration-200 ease-in cursor-pointer hover:text-[#5faf34] font-semibold">
                     <Link href="/">Home</Link>
                   </li>
                   <li className="text-sm mt-[1px]">
                     {" "}
                     <FiChevronRight />{" "}
                   </li>
-                  <li className="text-sm pl-1 transition duration-200 ease-in cursor-pointer hover:text-emerald-500 font-semibold ">
+                  <li className="text-sm pl-1 transition duration-200 ease-in cursor-pointer hover:text-[#5faf34] font-semibold ">
                     <Link
                       href={`/search?category=${category_name}&_id=${product?.category?._id}`}
                     >
@@ -440,7 +440,7 @@ const ProductScreen = ({ product, attributes, relatedProducts }) => {
                           <div className="mt-8">
                             <p className="text-xs sm:text-sm text-gray-700 font-medium">
                               Call Us To Order By Mobile Number :{" "}
-                              <span className="text-emerald-700 font-semibold">
+                              <span className="text-[#5faf34] font-semibold">
                                 +0044235234
                               </span>{" "}
                             </p>
@@ -455,7 +455,7 @@ const ProductScreen = ({ product, attributes, relatedProducts }) => {
                               {t("common:shareYourSocialText")}
                             </p>
                             <ul className="flex mt-4">
-                              <li className="flex items-center text-center border border-gray-100 rounded-full hover:bg-emerald-500  mr-2 transition ease-in-out duration-500">
+                              <li className="flex items-center text-center border border-gray-100 rounded-full hover:bg-[#5faf34]  mr-2 transition ease-in-out duration-500">
                                 <FacebookShareButton
                                   url={`https://SatvaCare-store-nine.vercel.app/product/${router.query.slug}`}
                                   quote=""
@@ -463,7 +463,7 @@ const ProductScreen = ({ product, attributes, relatedProducts }) => {
                                   <FacebookIcon size={32} round />
                                 </FacebookShareButton>
                               </li>
-                              <li className="flex items-center text-center border border-gray-100 rounded-full hover:bg-emerald-500  mr-2 transition ease-in-out duration-500">
+                              <li className="flex items-center text-center border border-gray-100 rounded-full hover:bg-[#5faf34]  mr-2 transition ease-in-out duration-500">
                                 <TwitterShareButton
                                   url={`https://SatvaCare-store-nine.vercel.app/product/${router.query.slug}`}
                                   quote=""
@@ -471,7 +471,7 @@ const ProductScreen = ({ product, attributes, relatedProducts }) => {
                                   <TwitterIcon size={32} round />
                                 </TwitterShareButton>
                               </li>
-                              <li className="flex items-center text-center border border-gray-100 rounded-full hover:bg-emerald-500  mr-2 transition ease-in-out duration-500">
+                              <li className="flex items-center text-center border border-gray-100 rounded-full hover:bg-[#5faf34]  mr-2 transition ease-in-out duration-500">
                                 <RedditShareButton
                                   url={`https://SatvaCare-store-nine.vercel.app/product/${router.query.slug}`}
                                   quote=""
@@ -479,7 +479,7 @@ const ProductScreen = ({ product, attributes, relatedProducts }) => {
                                   <RedditIcon size={32} round />
                                 </RedditShareButton>
                               </li>
-                              <li className="flex items-center text-center border border-gray-100 rounded-full hover:bg-emerald-500  mr-2 transition ease-in-out duration-500">
+                              <li className="flex items-center text-center border border-gray-100 rounded-full hover:bg-[#5faf34]  mr-2 transition ease-in-out duration-500">
                                 <WhatsappShareButton
                                   url={`https://SatvaCare-store-nine.vercel.app/product/${router.query.slug}`}
                                   quote=""
@@ -487,7 +487,7 @@ const ProductScreen = ({ product, attributes, relatedProducts }) => {
                                   <WhatsappIcon size={32} round />
                                 </WhatsappShareButton>
                               </li>
-                              <li className="flex items-center text-center border border-gray-100 rounded-full hover:bg-emerald-500  mr-2 transition ease-in-out duration-500">
+                              <li className="flex items-center text-center border border-gray-100 rounded-full hover:bg-[#5faf34]  mr-2 transition ease-in-out duration-500">
                                 <LinkedinShareButton
                                   url={`https://SatvaCare-store-nine.vercel.app/product/${router.query.slug}`}
                                   quote=""

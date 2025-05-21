@@ -25,7 +25,7 @@ const Category = () => {
   // console.log("data", data, "error", error, "isFetched", isFetched);
 
   return (
-    <div className="flex flex-col w-full h-full bg-white cursor-pointer scrollbar-hide">
+    <div className="flex flex-col w-full bg-white cursor-pointer scrollbar-hide">
       {categoryDrawerOpen && (
         <div className="w-full flex justify-between items-center h-16 px-6 py-4 bg-emerald-500 text-white border-b border-gray-100">
           <h2 className="font-semibold font-serif text-lg m-0 text-heading flex align-center">

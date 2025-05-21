@@ -56,8 +56,8 @@ const NavBarTop = () => {
         content: (
           <Link
             href="/about-us"
-            className={`flex items-center gap-1 px-2 py-1 rounded transition-all duration-200 hover:bg-emerald-50 hover:text-emerald-600 ${
-              isActive("/about-us") ? "text-emerald-600 font-semibold underline" : ""
+            className={`flex items-center gap-1 px-2 py-1 rounded transition-all duration-200 hover:bg-emerald-50 hover:text-[#5faf34] ${
+              isActive("/about-us") ? "text-[#5faf34] font-semibold underline" : ""
             }`}
             aria-current={isActive("/about-us") ? "page" : undefined}
           >
@@ -74,8 +74,8 @@ const NavBarTop = () => {
         content: (
           <Link
             href="/contact-us"
-            className={`flex items-center gap-1 px-2 py-1 rounded transition-all duration-200 hover:bg-emerald-50 hover:text-emerald-600 ${
-              isActive("/contact-us") ? "text-emerald-600 font-semibold underline" : ""
+            className={`flex items-center gap-1 px-2 py-1 rounded transition-all duration-200 hover:bg-emerald-50 hover:text-[#5faf34] ${
+              isActive("/contact-us") ? "text-[#5faf34] font-semibold underline" : ""
             }`}
             aria-current={isActive("/contact-us") ? "page" : undefined}
           >
@@ -91,8 +91,8 @@ const NavBarTop = () => {
       content: (
         <Link
           href="/user/my-account"
-          className={`flex items-center gap-1 px-2 py-1 rounded transition-all duration-200 hover:bg-emerald-50 hover:text-emerald-600 ${
-            isActive("/user/my-account") ? "text-emerald-600 font-semibold underline" : ""
+          className={`flex items-center gap-1 px-2 py-1 rounded transition-all duration-200 hover:bg-emerald-50 hover:text-[#5faf34] ${
+            isActive("/user/my-account") ? "text-[#5faf34] font-semibold underline" : ""
           }`}
           aria-current={isActive("/user/my-account") ? "page" : undefined}
         >
@@ -106,7 +106,7 @@ const NavBarTop = () => {
       content: userInfo?.email ? (
         <button
           onClick={handleLogOut}
-          className="flex items-center gap-1 px-2 py-1 rounded font-medium transition-all duration-200 hover:bg-emerald-50 hover:text-emerald-600 focus:outline-none"
+          className="flex items-center gap-1 px-2 py-1 rounded font-medium transition-all duration-200 hover:bg-emerald-50 hover:text-[#5faf34] focus:outline-none"
           aria-label="Logout"
         >
           <IoLockOpenOutline className="text-lg" />
@@ -115,8 +115,8 @@ const NavBarTop = () => {
       ) : (
         <Link
           href="/auth/login"
-          className={`flex items-center gap-1 px-2 py-1 rounded font-medium transition-all duration-200 hover:bg-emerald-50 hover:text-emerald-600 ${
-            isActive("/auth/login") ? "text-emerald-600 font-semibold underline" : ""
+          className={`flex items-center gap-1 px-2 py-1 rounded font-medium transition-all duration-200 hover:bg-emerald-50 hover:text-[#5faf34] ${
+            isActive("/auth/login") ? "text-[#5faf34] font-semibold underline" : ""
           }`}
           aria-label="Login"
           aria-current={isActive("/auth/login") ? "page" : undefined}
@@ -137,17 +137,17 @@ const NavBarTop = () => {
   return (
     <nav
       aria-label="Top Navigation"
-      className="hidden lg:block bg-emerald-500 border-b shadow-sm"
-    >
+      className="hidden lg:block bg-[#5faf34] border-b shadow-sm"
+      >
       <div className="max-w-screen-3xl mx-auto px-3 sm:px-10">
         <div className="flex justify-between items-center py-2 text-xs font-medium font-sans text-gray-700">
           {/* Phone/Help Section */}
           <span className="flex items-center space-x-2 text-white">
-            <FiPhoneCall className="text-emerald-500" size={16} />
+            <FiPhoneCall className="text-[#5faf34]" size={16} />
             <span>{helpText}</span>
             <a
               href={`tel:${phoneNumber}`}
-              className="font-bold text-emerald-500 hover:text-emerald-600 transition-colors duration-200"
+              className="font-bold text-white hover:white transition-colors duration-200"
             >
               {phoneNumber}
             </a>

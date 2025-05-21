@@ -112,7 +112,7 @@ const Dashboard = ({ title, description, children }) => {
                   {userSidebar?.map((item) => (
                     <span
                       key={item.title}
-                      className="p-2 my-2 flex font-serif items-center rounded-md hover:bg-gray-50 w-full hover:text-emerald-600"
+                      className="p-2 my-2 flex font-serif items-center rounded-md hover:bg-gray-50 w-full hover:text-[#5faf34]"
                     >
                       <item.icon
                         className="flex-shrink-0 h-4 w-4"
@@ -120,19 +120,19 @@ const Dashboard = ({ title, description, children }) => {
                       />
                       <Link
                         href={item.href}
-                        className="inline-flex items-center justify-between ml-2 text-sm font-medium w-full hover:text-emerald-600"
+                        className="inline-flex items-center justify-between ml-2 text-sm font-medium w-full hover:text-[#5faf34]"
                       >
                         {item.title}
                       </Link>
                     </span>
                   ))}
-                  <span className="p-2 flex font-serif items-center rounded-md hover:bg-gray-50 w-full hover:text-emerald-600">
+                  <span className="p-2 flex font-serif items-center rounded-md hover:bg-gray-50 w-full hover:text-[#5faf34]">
                     <span className="mr-2">
                       <IoLockOpenOutline />
                     </span>{" "}
                     <button
                       onClick={handleLogOut}
-                      className="inline-flex items-center justify-between text-sm font-medium w-full hover:text-emerald-600"
+                      className="inline-flex items-center justify-between text-sm font-medium w-full hover:text-[#5faf34]"
                     >
                       {showingTranslateValue(
                         storeCustomizationSetting?.navbar?.logout
@@ -180,7 +180,7 @@ const Dashboard = ({ title, description, children }) => {
                         )}
                         Icon={FiCheck}
                         quantity={data?.delivered}
-                        className="text-emerald-600 bg-emerald-200"
+                        className="text-[#5faf34] bg-emerald-200"
                       />
                     </div>
                     <RecentOrder data={data} loading={loading} error={error} />

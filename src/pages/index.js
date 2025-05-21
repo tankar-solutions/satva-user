@@ -4,8 +4,6 @@ import { useRouter } from "next/router";
 import Tab from "react-bootstrap/Tab";
 import Nav from "react-bootstrap/Nav";
 
-
-
 //internal import
 import Layout from "@layout/Layout";
 import Banner from "@components/banner/Banner";
@@ -17,6 +15,7 @@ import MainCarousel from "@components/carousel/MainCarousel";
 import FeatureCategory from "@components/category/FeatureCategory";
 import AttributeServices from "@services/AttributeServices";
 import PhotoGallery from "@components/slider/PhotoGallery";
+import ProductCard from "@components/product/Homeproduct"; // Import ProductCard
 
 const Home = ({ popularProducts, discountProducts, attributes }) => {
   const router = useRouter();
@@ -60,10 +59,10 @@ const Home = ({ popularProducts, discountProducts, attributes }) => {
                 <div className="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8">
                   <div className="text-center mb-16">
                     <h2 className="text-4xl font-bold text-gray-900 sm:text-5xl lg:text-6xl font-serif tracking-tight">
-                    Nourishing Earth, Growing Health
+                      Nourishing Earth, Growing Health
                     </h2>
                     <p className="mt-6 text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                     Our Collections
+                      Our Products
                     </p>
                   </div>
 
@@ -72,20 +71,24 @@ const Home = ({ popularProducts, discountProducts, attributes }) => {
                       <div className=" w-full max-w-4xl h-full blur-3xl rounded-full"></div>
                     </div>
 
-                    <FeatureCategory
-                      className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 relative z-10"
-                      itemClassName="group relative overflow-hidden rounded-2xl bg-white shadow-lg hover:shadow-xl transition-all duration-500 border border-gray-100 hover:border-primary-200"
-                      imageClassName="w-full h-56 sm:h-56 object-cover transition-transform duration-700 group-hover:scale-110"
-                      overlayClassName="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                      titleClassName="absolute bottom-6 left-6 text-white font-semibold text-xl sm:text-2xl opacity-100 group-hover:opacity-0 transition-opacity duration-300"
-                      countClassName="absolute top-5 right-5 bg-white/90 text-gray-900 px-3 py-1.5 rounded-full text-sm font-medium shadow-sm group-hover:bg-primary-500 group-hover:text-white transition-colors duration-300"
-                      infoClassName="absolute bottom-0 left-0 w-full p-6 translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500"
-                    />
+                    {/* Replace FeatureCategory with Product Grid */}
+                    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 relative z-10">
+                      {popularProducts?.slice(0, 5).map((product) => (
+                        <ProductCard
+                          key={product._id}
+                          product={product}
+                          attributes={attributes}
+                        />
+                      ))}
+                    </div>
                   </div>
 
                   <div className="mt-16 text-center">
-                    <button className="inline-flex items-center px-8 py-3.5 bg-primary-600 hover:bg-primary-700 text-black font-medium rounded-full text-lg transition-all duration-300 shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2">
-                      View All Categories
+
+                    <button className="inline-flex items-center px-8 py-3.5 bg-primary-600 hover:bg-[#5faf34]
+                     text-black hover:text-white font-medium rounded-full text-lg transition-all duration-300 shadow-md hover:shadow-lg focus:outline-none"  
+                    onClick={() => router.push("/search?category=medicine&_id=6822d273a4bb520067068be1")}>
+                      View All Products
                       <svg
                         className="ml-2 -mr-1 w-5 h-5"
                         fill="currentColor"

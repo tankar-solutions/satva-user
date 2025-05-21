@@ -150,7 +150,7 @@ const ForgetPassword = () => {
                           value === password.current ||
                           "The passwords do not match",
                       })}
-                      className="py-2 px-4 md:px-5 w-full appearance-none border text-sm opacity-75 text-input rounded-md placeholder-body min-h-12 transition duration-200 focus:ring-0 ease-in-out bg-gray-100 border-gray-200 focus:outline-none focus:border-emerald-500 h-11 md:h-12"
+                      className="py-2 px-4 md:px-5 w-full appearance-none border text-sm opacity-75 text-input rounded-md placeholder-body min-h-12 transition duration-200 focus:ring-0 ease-in-out bg-gray-100 border-gray-200 focus:outline-none focus:border-[#5faf34] h-11 md:h-12"
                     />
 
                     <Error errorName={errors.confirm_password} />
@@ -161,7 +161,7 @@ const ForgetPassword = () => {
               <button
                 disabled={loading}
                 type="submit"
-                className="w-full text-center py-3 rounded bg-emerald-500 font-medium text-sm text-white hover:bg-emerald-600 transition-all focus:outline-none my-1"
+                className="w-full text-center py-3 rounded bg-[#5faf34] font-medium text-sm text-white hover:bg-[#5faf34] transition-all focus:outline-none my-1"
               >
                 {showLogin ? "Login" : "Reset Password"}
               </button>

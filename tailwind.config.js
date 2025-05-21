@@ -11,6 +11,8 @@ module.exports = {
       sans: ["Open Sans", "sans-serif"],
       serif: ["Inter", "sans-serif"],
       DejaVu: ["DejaVu Sans", "Arial", "sans-serif"],
+      
+
     },
     extend: {
       height: {

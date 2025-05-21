@@ -9,7 +9,7 @@ export default class PhotoGallery extends Component {
             <div className="gallery-header mb-9">
               <div className="flex justify-center">
                 <div className="text-center px-12">
-                  <span className="block text-orange-500 mb-4 text-2xl font-bold">
+                  <span className="block text-[#ef8201] mb-4 text-2xl font-bold">
                     Photo Gallery
                   </span>
                   <h2 className="text-4xl font-extrabold">

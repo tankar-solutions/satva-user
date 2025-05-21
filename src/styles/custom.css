@@ -6,6 +6,10 @@
   background-image: none;
 }
 
+body {
+  @apply font-sans; /* Applies "Open Sans" based on your config */
+}
+
 .StripeElement {
   box-sizing: border-box;
   height: 50px;

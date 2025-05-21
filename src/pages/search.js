@@ -44,7 +44,7 @@ const Search = ({ products, attributes }) => {
                     <div className="flex-1">
                       <div className="about-two-content wow fadeInUp delay-0-4s">
                         <div className="section-title mb-6">
-                          <span className="sub-title text-orange-500 text-2xl font-semibold mb-2 block">
+                          <span className="sub-title text-[#ef8201] text-2xl font-semibold mb-2 block">
                             Our Products
                           </span>
                           <h2 className="text-3xl font-bold leading-snug mb-4">
@@ -138,7 +138,7 @@ const Search = ({ products, attributes }) => {
                     <div className="text-center mt-8">
                       <button
                         onClick={() => setVisibleProduct((pre) => pre + 9)}
-                        className="w-auto mx-auto md:text-sm leading-5 flex items-center transition ease-in-out duration-300 font-medium text-center justify-center border-0 border-transparent rounded-md focus-visible:outline-none focus:outline-none bg-indigo-100 text-gray-700 px-5 md:px-6 lg:px-8 py-2 md:py-3 lg:py-3 hover:text-white hover:bg-emerald-600 h-12 text-sm lg:text-sm"
+                        className="w-auto mx-auto md:text-sm leading-5 flex items-center transition ease-in-out duration-300 font-medium text-center justify-center border-0 border-transparent rounded-md focus-visible:outline-none focus:outline-none bg-indigo-100 text-gray-700 px-5 md:px-6 lg:px-8 py-2 md:py-3 lg:py-3 hover:text-white hover:bg-[#5faf34] h-12 text-sm lg:text-sm"
                       >
                         {t("common:loadMoreBtn")}
                       </button>

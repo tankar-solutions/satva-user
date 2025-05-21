@@ -40,7 +40,7 @@ const InputShipping = ({
               name="shippingOption"
               type="radio"
               value={value}
-              className="form-radio outline-none focus:ring-0 text-emerald-500"
+              className="form-radio outline-none focus:ring-0 text-[#5faf34]"
             />
           </div>
         </label>

@@ -124,7 +124,7 @@ const MainCarousel = () => {
                     </p>
                     <Link
                       href={item.url}
-                      className="inline-block px-8 py-3 text-lg font-medium text-center text-emerald-900 bg-white rounded-lg hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg"
+                      className="inline-block px-8 py-3 text-lg font-medium text-center text-[#5faf34] bg-white rounded-lg hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg"
                     >
                       {item.buttonName}
                     </Link>

@@ -20,13 +20,13 @@ const Invoice = ({ data, printRef, globalSetting, currency }) => {
             <h6 className="text-gray-700">
               Status :{" "}
               {data.status === "Delivered" && (
-                <span className="text-emerald-500">{data.status}</span>
+                <span className="text-[#5faf34]">{data.status}</span>
               )}
               {data.status === "POS-Completed" && (
-                <span className="text-emerald-500">{data.status}</span>
+                <span className="text-[#5faf34]">{data.status}</span>
               )}
               {data.status === "Pending" && (
-                <span className="text-orange-500">{data.status}</span>
+                <span className="text-[#ef8201]">{data.status}</span>
               )}
               {data.status === "Cancel" && (
                 <span className="text-red-500">{data.status}</span>

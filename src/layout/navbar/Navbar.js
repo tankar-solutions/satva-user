@@ -109,7 +109,7 @@ const Navbar = () => {
                 onClick={toggleCartDrawer}
                 className="relative px-5 text-white text-2xl font-bold"
               >
-                <span className="absolute z-10 top-0 right-0 inline-flex items-center justify-center p-1 h-5 w-5 text-xs font-medium leading-none text-red-100 transform -translate-x-1/2 -translate-y-1/2 bg-red-500 rounded-full">
+                <span className="absolute z-10 top-0 right-0 inline-flex items-center justify-center p-1 h-5 w-5 text-xs font-medium leading-none text-white transform -translate-x-1/2 -translate-y-1/2 bg-[#ef8201] rounded-full">
                   {totalItems}
                 </span>
                 <FiShoppingCart className="w-6 h-6 drop-shadow-xl text-black" />

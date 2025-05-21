@@ -329,7 +329,7 @@ const ProductModal = ({
                   <button
                     onClick={() => handleAddToCart(product)}
                     disabled={product.quantity < 1}
-                    className="text-sm leading-4 inline-flex items-center cursor-pointer transition ease-in-out duration-300 font-semibold font-serif text-center justify-center border-0 border-transparent rounded-md focus-visible:outline-none focus:outline-none text-white px-4 ml-4 md:px-6 lg:px-8 py-4 md:py-3.5 lg:py-4 hover:text-white bg-emerald-500 hover:bg-emerald-600 w-full h-12"
+                    className="text-sm leading-4 inline-flex items-center cursor-pointer transition ease-in-out duration-300 font-semibold font-serif text-center justify-center border-0 border-transparent rounded-md focus-visible:outline-none focus:outline-none text-white px-4 ml-4 md:px-6 lg:px-8 py-4 md:py-3.5 lg:py-4 hover:text-white bg-[#5faf34] hover:bg-[#5faf34] w-full h-12"
                   >
                     {t("common:addToCart")}
                   </button>
@@ -361,7 +361,7 @@ const ProductModal = ({
                   <div>
                     <button
                       onClick={() => handleMoreInfo(product.slug)}
-                      className="font-sans font-medium text-sm text-orange-500"
+                      className="font-sans font-medium text-sm text-[#ef8201]"
                     >
                       {t("common:moreInfo")}
                     </button>
@@ -371,7 +371,7 @@ const ProductModal = ({
               <div className="flex justify-end mt-2">
                 <p className="text-xs sm:text-sm text-gray-600">
                   Call Us To Order By Mobile Number :{" "}
-                  <span className="text-emerald-700 font-semibold">
+                  <span className="text-[#5faf34] font-semibold">
                     +0044235234
                   </span>{" "}
                 </p>
