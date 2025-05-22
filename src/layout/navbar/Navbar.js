@@ -17,7 +17,7 @@ import CartDrawer from "@components/drawer/CartDrawer";
 import { SidebarContext } from "@context/SidebarContext";
 
 const Navbar = () => {
-  const { t, lang } = useTranslation("common");
+  const { t, } = useTranslation("common");
   const [searchText, setSearchText] = useState("");
   const { toggleCartDrawer } = useContext(SidebarContext);
   const { totalItems } = useCart();

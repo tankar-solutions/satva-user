@@ -2,7 +2,6 @@ import { SidebarContext } from "@context/SidebarContext";
 import { useContext, useEffect } from "react";
 import { useRouter } from "next/router";
 import Tab from "react-bootstrap/Tab";
-import Nav from "react-bootstrap/Nav";
 
 //internal import
 import Layout from "@layout/Layout";
@@ -12,15 +11,14 @@ import StickyCart from "@components/cart/StickyCart";
 import Loading from "@components/preloader/Loading";
 import ProductServices from "@services/ProductServices";
 import MainCarousel from "@components/carousel/MainCarousel";
-import FeatureCategory from "@components/category/FeatureCategory";
 import AttributeServices from "@services/AttributeServices";
 import PhotoGallery from "@components/slider/PhotoGallery";
 import ProductCard from "@components/product/Homeproduct"; // Import ProductCard
 
-const Home = ({ popularProducts, discountProducts, attributes }) => {
+const Home = ({ popularProducts, attributes }) => {
   const router = useRouter();
   const { isLoading, setIsLoading } = useContext(SidebarContext);
-  const { loading, error, storeCustomizationSetting } = useGetSetting();
+  const { storeCustomizationSetting } = useGetSetting();
 
   useEffect(() => {
     if (router.asPath === "/") {
