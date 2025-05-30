@@ -17,12 +17,10 @@ const Category = () => {
     useContext(SidebarContext);
   const { showingTranslateValue } = useUtilsFunction();
 
-  const { data, error, isLoading, isFetched } = useQuery({
+  const { data, error, isLoading } = useQuery({
     queryKey: ["category"],
     queryFn: async () => await CategoryServices.getShowingCategory(),
   });
-
-  // console.log("data", data, "error", error, "isFetched", isFetched);
 
   return (
     <div className="flex flex-col w-full bg-white cursor-pointer scrollbar-hide">
@@ -72,7 +70,6 @@ const Category = () => {
             ))}
           </div>
         )}
-
         {categoryDrawerOpen && (
           <div className="relative grid gap-2 mt-5">
             <h3 className="font-semibold font-serif text-lg m-0 text-heading flex align-center border-b px-8 py-3">

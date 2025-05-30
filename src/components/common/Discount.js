@@ -23,7 +23,7 @@ const Discount = ({ discount, product, slug, modal }) => {
               ? "absolute text-dark text-sm bg-[#ef8201] text-white py-1 px-2 rounded font-medium z-10 left-4 top-4"
               : slug
               ? "text-dark text-sm bg-[#ef8201] text-white py-1 px-2 rounded font-medium z-10 left-0 top-4"
-              : "absolute text-dark text-xs bg-[#ef8201] text-white py-1 px-2 rounded font-medium z-10"
+              : "absolute text-dark text-xs bg-[#ef8401] text-white py-1 px-2 rounded font-medium z-10"
           }
         >
           {discount}% Off

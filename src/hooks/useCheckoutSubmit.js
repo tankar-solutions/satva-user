@@ -56,9 +56,7 @@ const useCheckoutSubmit = (storeSetting) => {
   const hasShippingAddress =
     !isLoading && data && Object.keys(data)?.length > 0;
 
-  // console.log("storeSetting", storeSetting);
 
-  // console.log("res", data);
 
   const {
     register,
@@ -70,7 +68,6 @@ const useCheckoutSubmit = (storeSetting) => {
   useEffect(() => {
     if (Cookies.get("couponInfo")) {
       const coupon = JSON.parse(Cookies.get("couponInfo"));
-      // console.log('coupon information',coupon)
       setCouponInfo(coupon);
       setDiscountPercentage(coupon.discountType);
       setMinimumAmount(coupon.minimumAmount);
@@ -78,7 +75,6 @@ const useCheckoutSubmit = (storeSetting) => {
     setValue("email", userInfo?.email);
   }, [isCouponApplied]);
 
-  //remove coupon if total value less then minimum amount of coupon
   useEffect(() => {
     if (minimumAmount - discountAmount > total || isEmpty) {
       setDiscountPercentage(0);
@@ -86,8 +82,6 @@ const useCheckoutSubmit = (storeSetting) => {
     }
   }, [minimumAmount, total]);
 
-  //calculate total and discount value
-  //calculate total and discount value
   useEffect(() => {
     const discountProductTotal = items?.reduce(
       (preValue, currentValue) => preValue + currentValue.itemTotal,
@@ -107,17 +101,11 @@ const useCheckoutSubmit = (storeSetting) => {
 
     setDiscountAmount(discountAmountTotal);
 
-    // console.log("total", totalValue);
-
     setTotal(totalValue);
   }, [cartTotal, shippingCost, discountPercentage]);
 
   const submitHandler = async (data) => {
-    // console.log("data", data);
-    // return;
     try {
-      // dispatch({ type: "SAVE_SHIPPING_ADDRESS", payload: data });
-      // Cookies.set("shippingAddress", JSON.stringify(data));
       setIsCheckoutSubmit(true);
       setError("");
 
@@ -150,7 +138,6 @@ const useCheckoutSubmit = (storeSetting) => {
         },
       });
 
-      // Handle payment based on method
       switch (data.paymentMethod) {
         case "Card":
           await handlePaymentWithStripe(orderInfo);
@@ -170,7 +157,7 @@ const useCheckoutSubmit = (storeSetting) => {
     }
   };
 
-  // console.log("globalSetting", globalSetting?.email_to_customer);
+
 
   const handleOrderSuccess = async (orderResponse, orderInfo) => {
     try {
@@ -199,7 +186,6 @@ const useCheckoutSubmit = (storeSetting) => {
       };
 
       if (globalSetting?.email_to_customer) {
-        // Trigger email in the background
         OrderServices.sendEmailInvoiceToCustomer(updatedData).catch(
           (emailErr) => {
             console.error("Failed to send email invoice:", emailErr.message);
@@ -207,10 +193,8 @@ const useCheckoutSubmit = (storeSetting) => {
         );
       }
 
-      // Add notification
       await NotificationServices.addNotification(notificationInfo);
 
-      // Proceed with order success
       router.push(`/order/${orderResponse?._id}`);
       notifySuccess(
         "Your Order Confirmed! The invoice will be emailed to you shortly."

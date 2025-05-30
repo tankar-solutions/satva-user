@@ -27,9 +27,6 @@ const Navbar = () => {
 
   const { storeCustomizationSetting } = useGetSetting();
 
-  // console.log("storeCustomizationSetting", storeCustomizationSetting);
-
-  // console.log("t", t, "lang::::", lang);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -45,10 +42,6 @@ const Navbar = () => {
     }
   };
 
-  // console.log(
-  //   "storeCustomizationSetting?.navbar?.header_logo",
-  //   storeCustomizationSetting?.navbar?.logo
-  // );
 
   return (
     <>

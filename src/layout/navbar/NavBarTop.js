@@ -49,41 +49,6 @@ const NavBarTop = () => {
   const navItems = useMemo(() => {
     const items = [];
 
-    if (storeCustomizationSetting?.navbar?.about_menu_status) {
-      items.push({
-        key: "about",
-        href: "/about-us",
-        content: (
-          <Link
-            href="/about-us"
-            className={`flex items-center gap-1 px-2 py-1 rounded transition-all duration-200 hover:bg-emerald-50 hover:text-[#5faf34] ${
-              isActive("/about-us") ? "text-[#5faf34] font-semibold underline" : ""
-            }`}
-            aria-current={isActive("/about-us") ? "page" : undefined}
-          >
-            {showingTranslateValue(storeCustomizationSetting?.navbar?.about_us)}
-          </Link>
-        ),
-      });
-    }
-
-    if (storeCustomizationSetting?.navbar?.contact_menu_status) {
-      items.push({
-        key: "contact",
-        href: "/contact-us",
-        content: (
-          <Link
-            href="/contact-us"
-            className={`flex items-center gap-1 px-2 py-1 rounded transition-all duration-200 hover:bg-emerald-50 hover:text-[#5faf34] ${
-              isActive("/contact-us") ? "text-[#5faf34] font-semibold underline" : ""
-            }`}
-            aria-current={isActive("/contact-us") ? "page" : undefined}
-          >
-            {showingTranslateValue(storeCustomizationSetting?.navbar?.contact_us)}
-          </Link>
-        ),
-      });
-    }
 
     items.push({
       key: "account",

@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import Tab from "react-bootstrap/Tab";
 
 //internal import
+import FeatureCategory from "@components/category/FeatureCategory";
 import Layout from "@layout/Layout";
 import Banner from "@components/banner/Banner";
 import useGetSetting from "@hooks/useGetSetting";
@@ -60,7 +61,7 @@ const Home = ({ popularProducts, attributes }) => {
                       Nourishing Earth, Growing Health
                     </h2>
                     <p className="mt-6 text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                      Our Products
+                      Our Categories
                     </p>
                   </div>
 
@@ -69,8 +70,18 @@ const Home = ({ popularProducts, attributes }) => {
                       <div className=" w-full max-w-4xl h-full blur-3xl rounded-full"></div>
                     </div>
 
+
+                    <FeatureCategory
+                      className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 relative z-10"
+                      itemClassName="group relative overflow-hidden rounded-2xl bg-white shadow-lg hover:shadow-xl transition-all duration-500 border border-gray-100 hover:border-primary-200"
+                      imageClassName="w-full h-56 sm:h-56 object-cover transition-transform duration-700 group-hover:scale-110"
+                      overlayClassName="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                      titleClassName="absolute bottom-6 left-6 text-white font-semibold text-xl sm:text-2xl opacity-100 group-hover:opacity-0 transition-opacity duration-300"
+                      countClassName="absolute top-5 right-5 bg-white/90 text-gray-900 px-3 py-1.5 rounded-full text-sm font-medium shadow-sm group-hover:bg-primary-500 group-hover:text-white transition-colors duration-300"
+                      infoClassName="absolute bottom-0 left-0 w-full p-6 translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500"
+                    />
                     {/* Replace FeatureCategory with Product Grid */}
-                    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 relative z-10">
+                    {/* <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 relative z-10">
                       {popularProducts?.slice(0, 5).map((product) => (
                         <ProductCard
                           key={product._id}
@@ -78,7 +89,7 @@ const Home = ({ popularProducts, attributes }) => {
                           attributes={attributes}
                         />
                       ))}
-                    </div>
+                    </div> */}
                   </div>
 
                   <div className="mt-16 text-center">
@@ -86,7 +97,7 @@ const Home = ({ popularProducts, attributes }) => {
                     <button className="inline-flex items-center px-8 py-3.5 bg-primary-600 hover:bg-[#5faf34]
                      text-black hover:text-white font-medium rounded-full text-lg transition-all duration-300 shadow-md hover:shadow-lg focus:outline-none"  
                     onClick={() => router.push("/search?category=medicine&_id=6822d273a4bb520067068be1")}>
-                      View All Products
+                      View All Categories
                       <svg
                         className="ml-2 -mr-1 w-5 h-5"
                         fill="currentColor"
@@ -113,6 +124,7 @@ const Home = ({ popularProducts, attributes }) => {
                   <div className="flex-1 grid grid-cols-2 gap-4">
                     <div className="flex flex-col gap-4">
                       <img
+                      
                         src="/about/about1.jpg"
                         alt="About"
                         className="rounded-lg w-full h-auto object-cover"

@@ -764,27 +764,28 @@ export const storeCustomization = {
     },
     block1_sub_link4: "#",
     block2_title: {
-      en: "Latest News",
+      en: "Policies",
       de: "Neueste Nachrichten",
     },
     block2_sub_title1: {
-      en: "Crop Farming",
+      en: "Privacy Policy",
       de: "Fisch Fleisch",
     },
-    block2_sub_link1: "/search?category=fish-meat",
+    block2_sub_link1: "/privacy-policy",
     block2_sub_title2: {
-      en: "Livestock Farming",
+      en: "Return Policy",
       de: "Erfrischungsgetränk",
     },
-    block2_sub_link2: "/search?category=drinks",
+    block2_sub_link2: "",
     block2_sub_title3: {
-      en: "Mixed Farming",
+      en: "Terms & Conditions",
       de: "Milch und Milchprodukte",
     },
-    block2_sub_link3: "/search?category=milk-dairy",
+   
+    block2_sub_link3: "/terms-and-conditions",
     block2_sub_title4: {
-      en: "Aquaculture",
-      de: "Schönheit und Gesundheit",
+      en: "",
+      de: "Milch und Milchprodukte",
     },
     block2_sub_link4: "/search?category=beauty-health",
     block3_title: {
